@@ -8,6 +8,8 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.concurrent.ThreadPoolExecutor;
+
 public class EchoClient {
     private Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -49,7 +51,6 @@ public class EchoClient {
     }
 
     public static void main(String[] args) throws Exception {
-
         new EchoClient("localhost", 3333).send();
     }
 }
