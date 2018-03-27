@@ -22,9 +22,13 @@ public class ArticleController {
         return articleService.selectAllByPage(offset, limit);
     }
 
-
     @RequestMapping(value = "/api/Article/{id}", method = RequestMethod.GET)
     public ArticleWithBLOBs selectAllByPage(@PathVariable(value = "id") Integer id) {
         return articleService.selectByPrimaryKey(id);
+    }
+
+    @RequestMapping(value = "/api/Article",method = RequestMethod.POST)
+    public int insert(@RequestBody ArticleWithBLOBs articleWithBLOBs){
+        return articleService.insert(articleWithBLOBs);
     }
 }

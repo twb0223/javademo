@@ -52,7 +52,6 @@ class EnumSingleton {
 
     private static enum Singleton {
         INSTANCE;
-
         private EnumSingleton singleton;
 
         //JVM会保证此方法绝对只调用一次

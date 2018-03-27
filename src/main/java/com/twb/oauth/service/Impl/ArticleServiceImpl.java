@@ -54,5 +54,4 @@ public class ArticleServiceImpl implements ArticleService {
     public List<ArticleWithBLOBs> selectAllByPage(Integer offset, Integer limit) {
         return articleMapper.selectByPage(offset,limit);
     }
-
 }
