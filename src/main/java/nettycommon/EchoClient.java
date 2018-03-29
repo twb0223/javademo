@@ -1,4 +1,4 @@
-package com.twb.oauth.nettycommon;
+package nettycommon;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
@@ -7,8 +7,6 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.concurrent.ThreadPoolExecutor;
 
 public class EchoClient {
     private Logger logger = LoggerFactory.getLogger(getClass());

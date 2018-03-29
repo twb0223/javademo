@@ -1,4 +1,4 @@
-package com.twb.oauth.nettycommon;
+package nettycommon;
 
 
 import io.netty.bootstrap.ServerBootstrap;
