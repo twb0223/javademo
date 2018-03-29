@@ -1,4 +1,4 @@
-package ThreadDemo;
+package threaddemo;
 
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
