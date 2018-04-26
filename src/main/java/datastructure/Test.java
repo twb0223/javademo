@@ -1,7 +1,5 @@
 package datastructure;
 
-import datastructure.BinaryTree;
-
 public class Test {
     public static void main(String[] args) {
 //        BinaryTree tree=new BinaryTree(10);

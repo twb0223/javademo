@@ -59,7 +59,12 @@ class TaskWithResult implements Callable<String> {
 }
 
 class TaskException extends Exception {
-    public TaskException(String message) {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6090558150281995595L;
+
+	public TaskException(String message) {
         super(message);
     }
 }

@@ -3,7 +3,12 @@ package threaddemo;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class ReadDemo extends ReentrantReadWriteLock {
-    public void read() {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5734704040215911492L;
+
+	public void read() {
         try {
             readLock().lock();
             System.out.println(Thread.currentThread().getName() + "get readlock,time is:" + System.currentTimeMillis());
