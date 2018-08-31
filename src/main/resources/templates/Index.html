@@ -3,10 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+    table,
+    td,
+    th {
+        border: 1px solid black;
+    }
+
+    button {
+        width: 90px;
+        margin-right: 10px;
+        border-radius: 5px;
+        background: silver;
+    }
+</style>
 <body>
+<div id="app">
+
+    <table>
+        <tr v-for="(x,index) in tables">
+            <td>{{index+1}}</td>
+            <td>{{x.username}}</td>
+            <td>{{x.email}}</td>
+            <td>{{x.regtime}}</td>
+        </tr>
+    </table>
+</div>
 </body>
 </html>
 <script>
 
+    var app=new Vue({
+        el:"#app",
+        data:{
+            tables:[]
+        },
+        mounted:function(){
+          this.init();
+        },
+    methods:{
+            init:function(){
+                var _this=this;
+                axios.get("/api/user/",{}).then((res)=>{
+                    _this.tables=res.data;
+                }).catch((err)=>{
+                    console.log(err.message);
+                });
+            }
+        }
+    });
 </script>
