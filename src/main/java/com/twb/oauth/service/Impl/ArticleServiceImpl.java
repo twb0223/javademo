@@ -15,6 +15,7 @@ public class ArticleServiceImpl implements ArticleService {
     @Autowired
     private ArticleMapper articleMapper;
 
+
     @Override
     public int deleteByPrimaryKey(Integer id) {
       return articleMapper.deleteByPrimaryKey(id);
@@ -54,4 +55,5 @@ public class ArticleServiceImpl implements ArticleService {
     public List<ArticleWithBLOBs> selectAllByPage(Integer offset, Integer limit) {
         return articleMapper.selectByPage(offset,limit);
     }
+
 }

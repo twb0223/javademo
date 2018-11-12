@@ -3,6 +3,7 @@ package com.twb.oauth.service.Impl;
 import com.twb.oauth.dao.UserDao;
 import com.twb.oauth.dao.UserMapper;
 import com.twb.oauth.domain.User;
+import com.twb.oauth.domain.UserArticleDto;
 import com.twb.oauth.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,5 +28,10 @@ public class UserSciveImpl implements UserService {
     public List<User> getAllUser() {
         List<User> list= userDao.getAll();
         return list;
+    }
+
+    @Override
+    public List<UserArticleDto> getUserArticles() {
+        return userDao.getUserArticles();
     }
 }

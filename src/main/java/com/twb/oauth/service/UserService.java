@@ -1,6 +1,7 @@
 package com.twb.oauth.service;
 
 import com.twb.oauth.domain.User;
+import com.twb.oauth.domain.UserArticleDto;
 
 import java.util.List;
 
@@ -9,4 +10,5 @@ public interface UserService {
 
     List<User> getAllUser();
 
+    List<UserArticleDto> getUserArticles();
 }

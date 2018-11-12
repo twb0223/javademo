@@ -1,6 +1,7 @@
 package com.twb.oauth.controller;
 
 import com.twb.oauth.domain.User;
+import com.twb.oauth.domain.UserArticleDto;
 import com.twb.oauth.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,4 +27,8 @@ public class UserController {
 		return userService.getAllUser();
 	}
 
+	@RequestMapping(value = "/info", method = RequestMethod.GET)
+	public List<UserArticleDto> getUserArticles() {
+		return userService.getUserArticles();
+	}
 }

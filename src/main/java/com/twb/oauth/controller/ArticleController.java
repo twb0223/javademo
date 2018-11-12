@@ -1,11 +1,13 @@
 package com.twb.oauth.controller;
 
 import com.twb.oauth.domain.ArticleWithBLOBs;
+import com.twb.oauth.domain.UserArticleDto;
 import com.twb.oauth.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 @RestController
 @RequestMapping(value = "/api/Article")
@@ -32,4 +34,5 @@ public class ArticleController {
     public int insert(@RequestBody ArticleWithBLOBs articleWithBLOBs){
         return articleService.insert(articleWithBLOBs);
     }
+
 }
