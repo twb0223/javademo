@@ -8,8 +8,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>oauth</name>
-	<description>oauth for api</description>
+	<name>blog</name>
+	<description>blog for api</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

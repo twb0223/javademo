@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.twb.oauth.dao.ArticleMapper">
-  <resultMap id="BaseResultMap" type="com.twb.oauth.domain.Article">
+<mapper namespace="com.twb.blog.dao.ArticleMapper">
+  <resultMap id="BaseResultMap" type="com.twb.blog.domain.Article">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="cid" jdbcType="INTEGER" property="cid" />
@@ -11,7 +11,7 @@
     <result column="state" jdbcType="INTEGER" property="state" />
     <result column="pageView" jdbcType="INTEGER" property="pageview" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.twb.oauth.domain.ArticleWithBLOBs">
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.twb.blog.domain.ArticleWithBLOBs">
     <result column="mdContent" jdbcType="LONGVARCHAR" property="mdcontent" />
     <result column="htmlContent" jdbcType="LONGVARCHAR" property="htmlcontent" />
     <result column="summary" jdbcType="LONGVARCHAR" property="summary" />
@@ -44,7 +44,7 @@
     delete from article
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.twb.oauth.domain.ArticleWithBLOBs">
+  <insert id="insert" parameterType="com.twb.blog.domain.ArticleWithBLOBs">
     insert into article (id, title, cid, 
       uid, publishDate, editTime, 
       state, pageView, mdContent, 
@@ -54,7 +54,7 @@
       #{state,jdbcType=INTEGER}, #{pageview,jdbcType=INTEGER}, #{mdcontent,jdbcType=LONGVARCHAR}, 
       #{htmlcontent,jdbcType=LONGVARCHAR}, #{summary,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.twb.oauth.domain.ArticleWithBLOBs">
+  <insert id="insertSelective" parameterType="com.twb.blog.domain.ArticleWithBLOBs">
     insert into article
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -127,7 +127,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.twb.oauth.domain.ArticleWithBLOBs">
+  <update id="updateByPrimaryKeySelective" parameterType="com.twb.blog.domain.ArticleWithBLOBs">
     update article
     <set>
       <if test="title != null">
@@ -163,7 +163,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.twb.oauth.domain.ArticleWithBLOBs">
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.twb.blog.domain.ArticleWithBLOBs">
     update article
     set title = #{title,jdbcType=VARCHAR},
       cid = #{cid,jdbcType=INTEGER},
@@ -177,7 +177,7 @@
       summary = #{summary,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.twb.oauth.domain.Article">
+  <update id="updateByPrimaryKey" parameterType="com.twb.blog.domain.Article">
     update article
     set title = #{title,jdbcType=VARCHAR},
       cid = #{cid,jdbcType=INTEGER},

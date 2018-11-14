@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.twb.oauth.dao.Article_tagsMapper">
-  <resultMap id="BaseResultMap" type="com.twb.oauth.domain.Article_tags">
+<mapper namespace="com.twb.blog.dao.Article_tagsMapper">
+  <resultMap id="BaseResultMap" type="com.twb.blog.domain.Article_tags">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="aid" jdbcType="INTEGER" property="aid" />
     <result column="tid" jdbcType="INTEGER" property="tid" />
@@ -19,11 +19,11 @@
     delete from article_tags
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.twb.oauth.domain.Article_tags">
+  <insert id="insert" parameterType="com.twb.blog.domain.Article_tags">
     insert into article_tags (id, aid, tid)
     values (#{id,jdbcType=INTEGER}, #{aid,jdbcType=INTEGER}, #{tid,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.twb.oauth.domain.Article_tags">
+  <insert id="insertSelective" parameterType="com.twb.blog.domain.Article_tags">
     insert into article_tags
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -48,7 +48,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.twb.oauth.domain.Article_tags">
+  <update id="updateByPrimaryKeySelective" parameterType="com.twb.blog.domain.Article_tags">
     update article_tags
     <set>
       <if test="aid != null">
@@ -60,7 +60,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.twb.oauth.domain.Article_tags">
+  <update id="updateByPrimaryKey" parameterType="com.twb.blog.domain.Article_tags">
     update article_tags
     set aid = #{aid,jdbcType=INTEGER},
       tid = #{tid,jdbcType=INTEGER}
