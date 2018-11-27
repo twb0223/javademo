@@ -2,7 +2,6 @@ package com.twb.blog.controller;
 
 import com.twb.blog.domain.ArticleWithBLOBs;
 import com.twb.blog.service.ArticleService;
-import com.twb.blog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,9 +12,6 @@ import java.util.List;
 public class ArticleController {
     @Autowired
     private ArticleService articleService;
-
-    @Autowired
-    private UserService userService;
 
     @RequestMapping(value = "/{offset}/{limit}", method = RequestMethod.GET)
     public List<ArticleWithBLOBs> selectAllByPage2(@PathVariable(value = "offset") Integer offset, @PathVariable(value = "limit") Integer limit) {

@@ -2,7 +2,6 @@ package com.twb.blog.service.Impl;
 
 import com.twb.blog.dao.UserMapper;
 import com.twb.blog.domain.User;
-import com.twb.blog.dao.UserDao;
 import com.twb.blog.domain.UserArticleDto;
 import com.twb.blog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +12,7 @@ import java.util.List;
 @Service
 public class UserSciveImpl implements UserService {
 
-    @Autowired
-    private UserDao userDao;
-
+   
     @Autowired
     private UserMapper userMapper;
 
@@ -26,12 +23,12 @@ public class UserSciveImpl implements UserService {
 
     @Override
     public List<User> getAllUser() {
-        List<User> list= userDao.getAll();
+        List<User> list= userMapper.getAll();
         return list;
     }
 
     @Override
     public List<UserArticleDto> getUserArticles() {
-        return userDao.getUserArticles();
+        return userMapper.getUserArticles();
     }
 }
