@@ -3,11 +3,11 @@ package com.twb.blog;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cache.annotation.EnableCaching;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @MapperScan("com.twb.blog.dao")
-@EnableCaching
+@EnableSwagger2
 public class BlogApplication {
 
 	public static void main(String[] args) {

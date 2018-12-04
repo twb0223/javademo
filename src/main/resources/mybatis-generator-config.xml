@@ -15,8 +15,8 @@
 
         <!-- jdbc连接 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://127.0.0.1:3306/vueblog2" userId="root"
-                        password="root" />
+                        connectionURL="jdbc:mysql://localhost:3306/blog" userId="root"
+                        password="Twb@0223!!" />
 
         <javaModelGenerator targetPackage="com.twb.oauth.domain"
                             targetProject="src/main/java">
