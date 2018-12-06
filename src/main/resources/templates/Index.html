@@ -25,45 +25,26 @@
 </style>
 <body>
 <div id="app">
-
-    <table>
-        <tr v-for="(x,index) in tables">
-            <td>{{index+1}}</td>
-            <td>{{x.userName}}</td>
-            <td>{{x.email}}</td>
-            <td>{{x.article.title}}</td>
-        </tr>
-    </table>
+    
 </div>
 </body>
 </html>
+
 <script>
 
     var app=new Vue({
         el:"#app",
         data:{
-            tables:[]
+            tables:[],
+            userList[]
         },
         mounted:function(){
           this.init();
         },
     methods:{
-            init:function(){var _this=this;
-                axios.get("/api/user/info",{}).then((res)=>{
-                    _this.tables=[];
-                        res.data.forEach((e)=>{
-                            _this.tables.push({
-                            userId:e.userId,
-                            userName:e.userName,
-                            email:e.email,
-                            article:{
-                                title:e.article.title
-                            }
-                        })
-                    });
-                }).catch((err)=>{
-                    console.log(err.message);
-                });
+            init:function(){
+            	let _this=this;
+            
             }
         }
     });

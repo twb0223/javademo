@@ -4,11 +4,9 @@ import com.twb.blog.domain.User;
 import com.twb.blog.domain.UserArticleDto;
 import com.twb.blog.service.UserService;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,17 +20,30 @@ public class UserController {
 	private UserService userService;
 
 	@RequestMapping(value = "/{id}",method = RequestMethod.GET)
-	public User showDao(@PathVariable(value = "id") int id) {
+	public User showUserById(@PathVariable(value = "id") Integer id) {
 		return userService.getUser(id);
 	}
 
 	@RequestMapping(value = "/",method= RequestMethod.GET)
-	public List<User> showUsers(){
+	public List<User> showAllUsers(){
 		return userService.getAllUser();
 	}
-
-	@RequestMapping(value = "/info", method = RequestMethod.GET)
-	public List<UserArticleDto> getUserArticles() {
-		return userService.getUserArticles();
+	
+	@RequestMapping(value = "/{id}/article", method = RequestMethod.GET)
+	public List<UserArticleDto> getUserArticles(@PathVariable(value="id") Integer id) {
+		return userService.getUserArticles(id);
 	}
+	@RequestMapping(value="/",method=RequestMethod.PUT)
+	public int updateUser(@RequestBody User user) {
+		return userService.updateUser(user);
+	}
+	@RequestMapping(value="/",method=RequestMethod.POST)
+	public int createUser(@RequestBody User user) {
+		return userService.insert(user);
+	}
+	@RequestMapping(value="/{id}",method=RequestMethod.DELETE)
+	public int deleteUser(@PathVariable(value="id") Integer id) {
+		return userService.deleteUser(id);
+	}    
+   
 }

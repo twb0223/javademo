@@ -1,6 +1,7 @@
 package com.twb.blog.dao;
 
 import com.twb.blog.domain.Article_tags;
+
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -16,4 +17,5 @@ public interface Article_tagsMapper {
     int updateByPrimaryKeySelective(Article_tags record);
 
     int updateByPrimaryKey(Article_tags record);
+    
 }

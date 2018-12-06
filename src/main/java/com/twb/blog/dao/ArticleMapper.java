@@ -24,4 +24,5 @@ public interface ArticleMapper {
     int updateByPrimaryKey(Article record);
 
     List<ArticleWithBLOBs> selectByPage(@Param("offset") Integer offset, @Param("limit") Integer limit);
+    
 }

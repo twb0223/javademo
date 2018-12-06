@@ -6,10 +6,16 @@ import com.twb.blog.domain.UserArticleDto;
 import java.util.List;
 
 public interface UserService {
-    User getUser(int id);
+    User getUser(Integer id);
 
     List<User> getAllUser();
 
-    List<UserArticleDto> getUserArticles();
-
+    List<UserArticleDto> getUserArticles(Integer id);
+    
+    Integer deleteUser(Integer id);
+    
+    Integer updateUser(User user);
+    
+    Integer insert(User user);
+   
 }

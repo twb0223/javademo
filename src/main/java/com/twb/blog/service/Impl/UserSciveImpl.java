@@ -18,9 +18,9 @@ public class UserSciveImpl implements UserService {
 
 	@Autowired
 	private RedisTemplate<String, Object> redisTemplate;
-
+	
 	@Override
-	public User getUser(int id) {
+	public User getUser(Integer id) {
 		User user = (User) redisTemplate.opsForValue().get("user_" + id);
 		if (user == null) {
 			user = userMapper.selectByPrimaryKey(id);
@@ -36,7 +36,24 @@ public class UserSciveImpl implements UserService {
 	}
 
 	@Override
-	public List<UserArticleDto> getUserArticles() {
-		return userMapper.getUserArticles();
+	public List<UserArticleDto> getUserArticles(Integer id) {
+		return userMapper.getUserArticles(id);
 	}
+
+	@Override
+	public Integer deleteUser(Integer id) {
+		return userMapper.deleteByPrimaryKey(id);
+
+	}
+
+	@Override
+	public Integer updateUser(User user) {
+		return userMapper.updateByPrimaryKey(user);
+	}
+
+	@Override
+	public Integer insert(User user) {
+		return userMapper.insert(user);
+	}
+	
 }

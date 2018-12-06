@@ -33,7 +33,7 @@ public interface UserMapper {
     List<User> getAll();
 
 
-    @Select("select u.id,u.username,a.id as articleid, a.title,u.email,a.mdContent from user u left join article a on a.uid = u.id")
+    @Select("select u.id,u.username,a.id as articleid, a.title,u.email,a.mdContent from user u left join article a on a.uid = u.id where u.id=#{id}")
     @Results({
             @Result(id=true,property="userId",column="id"),
             @Result(property="email" ,column="email"),
@@ -42,5 +42,5 @@ public interface UserMapper {
             @Result(property="article.title",column="title"),
             @Result(property="article.mdcontent",column="mdContent"),
     })
-    List<UserArticleDto> getUserArticles();
+    List<UserArticleDto> getUserArticles(Integer id);
 }

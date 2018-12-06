@@ -27,5 +27,6 @@ public class ArticleController {
     public int insert(@RequestBody ArticleWithBLOBs articleWithBLOBs){
         return articleService.insert(articleWithBLOBs);
     }
+
     
 }
