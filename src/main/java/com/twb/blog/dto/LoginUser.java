@@ -1,9 +1,14 @@
 package com.twb.blog.dto;
 
+import java.io.Serializable;
 
-public class LoginUser {
+public class LoginUser implements Serializable {
 
-    private String username;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String username;
     private String password;
     private Integer rememberMe;
 
