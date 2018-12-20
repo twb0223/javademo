@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.List;
 
 @RestController
@@ -18,6 +17,7 @@ import java.util.List;
 public class UserController {
 	@Autowired
 	private UserService userService;
+
 
 	@RequestMapping(value = "/{id}",method = RequestMethod.GET)
 	public User showUserById(@PathVariable(value = "id") Integer id) {
@@ -46,4 +46,5 @@ public class UserController {
 		return userService.deleteUser(id);
 	}    
    
+
 }

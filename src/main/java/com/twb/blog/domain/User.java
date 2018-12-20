@@ -4,7 +4,10 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class User implements Serializable {
-    private Integer id;
+
+
+
+	private Integer id;
 
     private String username;
 
@@ -19,7 +22,9 @@ public class User implements Serializable {
     private String userface;
 
     private Date regtime;
-
+    
+    private String authrole;
+    
     private static final long serialVersionUID = 1L;
 
     public Integer getId() {
@@ -85,4 +90,11 @@ public class User implements Serializable {
     public void setRegtime(Date regtime) {
         this.regtime = regtime;
     }
+	public String getAuthrole() {
+		return authrole;
+	}
+
+	public void setAuthrole(String authrole) {
+		this.authrole = authrole== null ? null : authrole.trim();;
+	}
 }

@@ -43,4 +43,7 @@ public interface UserMapper {
             @Result(property="article.mdcontent",column="mdContent"),
     })
     List<UserArticleDto> getUserArticles(Integer id);
+
+    @Select("select * from user where username=#{username}")
+	User getUserByName(String username);
 }
