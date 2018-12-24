@@ -5,6 +5,7 @@ import com.twb.blog.domain.UserArticleDto;
 import com.twb.blog.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,6 +43,7 @@ public class UserController {
 		return userService.insert(user);
 	}
 	@RequestMapping(value="/{id}",method=RequestMethod.DELETE)
+	@PreAuthorize("hasRole('ADMIN')")
 	public int deleteUser(@PathVariable(value="id") Integer id) {
 		return userService.deleteUser(id);
 	}    

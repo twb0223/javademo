@@ -22,12 +22,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 
-public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
+public class JwtLoginFilter extends UsernamePasswordAuthenticationFilter {
 
     private ThreadLocal<Integer> rememberMe = new ThreadLocal<>();
     private AuthenticationManager authenticationManager;
 
-    public JWTAuthenticationFilter(AuthenticationManager authenticationManager) {
+    public JwtLoginFilter(AuthenticationManager authenticationManager) {
         this.authenticationManager = authenticationManager;
         super.setFilterProcessesUrl("/auth/login");
     }

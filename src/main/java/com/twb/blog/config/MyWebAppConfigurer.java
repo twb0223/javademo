@@ -9,4 +9,5 @@ public class MyWebAppConfigurer implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**");
     }
+    
 }

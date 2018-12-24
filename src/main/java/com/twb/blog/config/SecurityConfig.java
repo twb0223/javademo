@@ -17,8 +17,8 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.twb.blog.JWTAuthenticationEntryPoint;
-import com.twb.blog.filter.JWTAuthenticationFilter;
-import com.twb.blog.filter.JWTAuthorizationFilter;
+import com.twb.blog.filter.JwtLoginFilter;
+import com.twb.blog.filter.JwtAuthenticationFilter;
 
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -44,8 +44,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				// 测试用资源，需要验证了的用户才能访问
 				.antMatchers("/api/**").authenticated().antMatchers(HttpMethod.DELETE, "/api/**").hasRole("ADMIN")
 				// 其他都放行了
-				.anyRequest().permitAll().and().addFilter(new JWTAuthenticationFilter(authenticationManager()))
-				.addFilter(new JWTAuthorizationFilter(authenticationManager()))
+				.anyRequest().permitAll().and().addFilter(new JwtLoginFilter(authenticationManager()))
+				.addFilter(new JwtAuthenticationFilter(authenticationManager()))
 				// 不需要session
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().exceptionHandling()
 				.authenticationEntryPoint(new JWTAuthenticationEntryPoint());
