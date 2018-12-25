@@ -13,16 +13,16 @@ import com.twb.blog.service.UserService;
 @RestController
 @RequestMapping(value = "/auth")
 public class HomeController {
-	
+
 	@Autowired
 	private UserService userService;
-	@Autowired 
-	 private BCryptPasswordEncoder bCryptPasswordEncoder;
-	
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
+
 	@PostMapping("/register")
-    public void registerUser(@RequestBody User user) {
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        user.setAuthrole("ROLE_USER");
-        userService.insert(user);
-    }
+	public void registerUser(@RequestBody User user) {
+		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+		user.setAuthrole("ROLE_USER");
+		userService.insert(user);
+	}
 }

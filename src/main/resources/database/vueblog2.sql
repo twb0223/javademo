@@ -257,6 +257,7 @@ CREATE TABLE `user` (
   `email` varchar(64) DEFAULT NULL,
   `userface` varchar(255) DEFAULT NULL,
   `regTime` datetime DEFAULT NULL,
+  `authrole` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
