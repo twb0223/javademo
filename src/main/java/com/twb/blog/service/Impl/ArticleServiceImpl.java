@@ -6,6 +6,7 @@ import com.twb.blog.domain.ArticleWithBLOBs;
 import com.twb.blog.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -27,6 +28,7 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
+    @Transactional
     public int insertSelective(ArticleWithBLOBs record) {
         return articleMapper.insertSelective(record);
     }

@@ -21,6 +21,6 @@ public class Swagger2 {
 	}
 
 	private ApiInfo apiInfo() {
-		return new ApiInfoBuilder().title("RESTful APIs").version("1.0").build();
+		return new ApiInfoBuilder().title("Blog APIs").version("1.0").build();
 	}
 }
