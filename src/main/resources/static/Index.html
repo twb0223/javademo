@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <!-- 引入样式 -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <!-- 引入组件库 -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <style>
+    .time {
+    font-size: 13px;
+    color: #999;
+  }
+  
+  .bottom {
+    margin-top: 13px;
+    line-height: 12px;
+  }
+
+  .button {
+    padding: 0;
+    float: right;
+  }
+
+  .image {
+    width: 10%;
+    height: 10%;
+    display: block;
+  }
+
+  .clearfix:before,
+  .clearfix:after {
+      display: table;
+      content: "";
+  }
+  
+  .clearfix:after {
+      clear: both
+  }
+    </style>
+</head>
+
+<body>
+  <div id="app">
+    <el-row>
+      <el-col :span="10" v-for="(o, index) in imgs" :key="o.id" :offset="index > 0 ? 2 : 0">
+        <el-card :body-style="{ padding: '0px' }">
+          <img :src='o.url' class="image">
+          <div style="padding: 14px;">
+            <span>{{o.id}}</span>
+            <div class="bottom clearfix">
+              <time class="time">{{ currentDate }}</time>
+              <el-button type="text" class="button">操作按钮</el-button>
+            </div>
+          </div>
+        </el-card>
+      </el-col>
+    </el-row>
+  </div>
+</body>
+
+</html>
+
+<script>
+
+  var app = new Vue({
+    el: "#app",
+    data: {
+      imgs: [],
+      currentDate: new Date()
+    },
+    mounted: function () {
+      this.init();
+    },
+    methods: {
+      init: function () {
+        let _this = this;
+        fetch('/base/imgs/10/1600', { method: 'get', headers: { 'Content-Type': 'application/json' } })
+          .then(response => response.json())
+          .then(data => {
+            _this.imgs = data;
+          });
+      }
+    }
+  });
+</script>
