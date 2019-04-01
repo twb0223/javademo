@@ -17,13 +17,11 @@ public class ImgServiceImpl implements ImgService {
 
 	@Override
 	public List<Imgs> getAll(Integer pageIndex,Integer pageSize) {
-
 		return imgsMapper.getAll(pageIndex,pageSize);
 	}
 
 	@Override
 	public List<Imgs> getImgById(Integer id) {
-		// TODO Auto-generated method stub
 		return imgsMapper.getImgById(id);
 	}
 

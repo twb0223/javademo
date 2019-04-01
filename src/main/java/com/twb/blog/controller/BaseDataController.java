@@ -28,6 +28,12 @@ public class BaseDataController {
 		return tagService.getAllTags();
 	}
 
+	@RequestMapping(value = "/tags/{id}", method = RequestMethod.GET)
+	public Tags getAllTags(@PathVariable(value = "id") Integer id) {
+		return tagService.getTags(id);
+	}
+
+
 	@RequestMapping(value = "/imgs/{pageSize}/{pageIndex}", method = RequestMethod.GET)
 	public List<Imgs> getImgsByPage(@PathVariable(value = "pageSize") Integer pageSize,
 			@PathVariable(value = "pageIndex") Integer pageIndex) {
